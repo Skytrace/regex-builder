@@ -1,0 +1,10 @@
+{
+  buy: [
+    { "descr": "only one digit", "regex": "\\d"},
+    { "descr": "only one word", "regex": "\\w"}
+  ],
+  sell: [
+    { "descr": "only one digit", "regex": "\\d"},
+    { "descr": "only one word", "regex": "\\w"}
+  ]
+}
