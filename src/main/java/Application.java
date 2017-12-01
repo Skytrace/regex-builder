@@ -1,10 +1,13 @@
-import serializer.Controller;
-
+import builder.UsdRegexBuilder;
+import mock.Mock;
 
 public class Application {
 
     public static void main(String... args) {
-        Controller.getUsdRule("json/usd.json");
+        UsdRegexBuilder usdBuilder = new UsdRegexBuilder();
+        final String rule = usdBuilder.getRule("json/usd.json");
+
+        UsdRegexBuilder.assertRule();
     }
 
 }

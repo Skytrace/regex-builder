@@ -1,14 +1,12 @@
-package serializer;
+package builder;
 
 import com.google.gson.Gson;
-import dto.UsdDTO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.stream.Collectors;
 
-public class Controller {
+public abstract class AbstractBuilder {
     private static Gson gson = new Gson();
 
     public <T extends Object>T fromJsonToDTO(String fileName, Class<T> clazz) {
@@ -22,11 +20,8 @@ public class Controller {
         }
     }
 
-    public static String getUsdRule(final String file) {
-        UsdDTO usd = new Controller().fromJsonToDTO(file, UsdDTO.class);
-        return usd.getBuy().stream()
-                .map(e -> e.getRegex() + "|")
-                .collect(Collectors.toList())
-                .toString();
-    }
+    abstract String getRule(final String file);
+
+    abstract String getDescription(final String file);
+
 }
